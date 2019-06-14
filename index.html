@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>React-study</title>
+</head>
+
+<body>
+    <div id='root'>
+    </div>
+
+    <!-- React를 실행. -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <!-- React -->
+    <script type="text/babel">
+        let root = document.getElementById('root');
+        
+        // 0. hello world - js
+        {
+            // let root = document.getElementById('root');
+            // let h1Ele = document.createElement("h1");
+            // h1Ele.innerText = 'Hello, world! - by js';
+            // root.appendChild(h1Ele);
+        }
+
+        // 1. hello world - React
+        {
+            // const element = <h1>Hello, world - by React</h1>;
+            // ReactDOM.render(element, root);
+        }
+
+        // 2. hello world - Component
+        {
+            // class HelloWorld extends React.Component {
+            //     constructor(props) {
+            //         super(props);
+            //     }
+            //     render() {
+            //         return (
+            //             <h1>Hello, world! - Component</h1>
+            //         );
+            //     }
+            // }
+
+            // ReactDOM.render(<HelloWorld />, root);
+        }
+
+        // 3. hello world - Props
+        {
+            // class HelloWorld extends React.Component {
+            //     constructor(props) {
+            //         super(props);
+            //     }
+            //     render() {
+            //         return (
+            //             <h1>Hello, world! - {this.props.tail}</h1>
+            //         );
+            //     }
+            // }
+
+            // ReactDOM.render(<HelloWorld tail={'props test'} />, root);
+        }
+
+        // 4. hello world - State
+        {
+            class HelloWorld extends React.Component {
+                constructor(props) {
+                    super(props);
+
+                    this.state = {
+                        msg: 'no message'
+                    }
+
+                    this.handleH1Click = this.handleH1Click.bind(this);
+                }
+                render() {
+                    return (
+                        <h1 onClick={this.handleH1Click}>
+                            Hello, world! - {this.state.msg}
+                        </h1>
+                    );
+                }
+                handleH1Click() {
+                    this.setState({ msg: 'state test' });
+                }
+            }
+
+            ReactDOM.render(<HelloWorld />, root);
+        }
+
+    </script>
+
+    <!-- JavaScript -->
+    <script>
+        // let root = document.getElementById('root');
+        // let h1Ele = document.createElement("h1");
+        // h1Ele.innerText = 'Hello, world! - by js';
+        // root.appendChild(h1Ele);
+    </script>
+</body>
+
+</html>
